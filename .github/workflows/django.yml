@@ -14,15 +14,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    services:
-        ports:
-          - 8000:8000
-        options: >-
-          --health-cmd "pg_isready -U django"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -37,13 +28,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Set environment variables
-        run: |
-          echo "DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}" >> $GITHUB_ENV
-          echo "DATABASE_URL=postgres://django:django@localhost:5432/test_db" >> $GITHUB_ENV
-
       - name: Run migrations
         run: python manage.py migrate
 
       - name: Run tests
-        run: python manage.py runserver
+        run: python manage.py test
