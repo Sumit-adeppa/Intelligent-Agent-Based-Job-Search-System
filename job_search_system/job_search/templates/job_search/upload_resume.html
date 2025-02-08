@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298, #000428);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            color: #fff;
+            position: relative;
+        }
+
+        .background-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .background-animation span {
+            position: absolute;
+            display: block;
+            width: 30px;
+            height: 30px;
+            background: rgba(0, 212, 255, 0.5);
+            animation: animate 12s linear infinite;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-800px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .upload-container {
+            background: rgba(30, 60, 114, 0.9);
+            border: 2px solid rgba(0, 212, 255, 0.6);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upload-container h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #00D4E8;
+            text-shadow: 0 -1px 5px rgba(0, 212, 255, 0.9);
+        }
+
+        .upload-container label {
+            display: inline-block;
+            background: linear-gradient(135deg, #00d4ff, #007bff);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 16px rgba(0, 123, 255, 0.5);
+        }
+
+        .upload-container label:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #00ffff, #007bff);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.7);
+        }
+
+        .upload-container input[type="file"] {
+            display: none;
+        }
+
+        .file-name {
+            margin: 15px 0;
+            font-size: 16px;
+            color: #ddd;
+        }
+
+        .upload-container button {
+            background: linear-gradient(135deg, #28a745, #1e7e34);
+            color: #fff;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 16px rgba(40, 167, 69, 0.5);
+        }
+
+        .upload-container button:hover {
+            background: linear-gradient(135deg, #32cd32, #218838);
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.7);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 480px) {
+            .upload-container {
+                padding: 20px;
+            }
+
+            .upload-container h1 {
+                font-size: 24px;
+            }
+
+            .upload-container label,
+            .upload-container button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation">
+        <span style="top: 10%; left: 20%; animation-delay: 0s;"></span>
+        <span style="top: 40%; left: 60%; animation-delay: 2s;"></span>
+        <span style="top: 70%; left: 30%; animation-delay: 4s;"></span>
+        <span style="top: 20%; left: 80%; animation-delay: 6s;"></span>
+    </div>
+
+    <div class="upload-container">
+        <h1><i class="fas fa-brain"></i> Intelligent Agent-Based Job Search System</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="resume"><i class="fas fa-cloud-upload-alt"></i> Choose File</label>
+            <input type="file" name="resume_file" id="resume" required onchange="displayFileName(event)">
+            <div class="file-name" id="file-name">No file chosen</div>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+
+    <script>
+        function displayFileName(event) {
+            const input = event.target;
+            const fileName = input.files.length > 0 ? input.files[0].name : "No file chosen";
+            document.getElementById('file-name').textContent = fileName;
+        }
+
+        // Add animation delays for background spans
+        document.querySelectorAll('.background-animation span').forEach((span, i) => {
+            span.style.left = `${Math.random() * 100}%`;
+            span.style.animationDelay = `${Math.random() * 10}s`;
+            span.style.animationDuration = `${Math.random() * 8 + 10}s`;
+        });
+    </script>
+</body>
+</html>

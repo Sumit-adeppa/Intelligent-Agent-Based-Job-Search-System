@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Recommendations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        .job-container {
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .job {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .job:last-child {
+            border-bottom: none;
+        }
+
+        .job h3 {
+            margin: 0;
+        }
+
+        .skills-container {
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .skill-box {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 12px;
+            font-size: 0.8em;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 5px;
+        }
+
+        .skill-box:hover {
+            background-color: #0056b3;
+        }
+
+        .job a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .job a:hover {
+            text-decoration: underline;
+        }
+
+        .apply-button {
+            padding: 8px 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .apply-button:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recommended Jobs</h1>
+
+    <div class="skills-container">
+        <h2>Extracted Skills</h2>
+        <!-- Display extracted skills in styled boxes -->
+        {% for skill in parsed_skills %}
+            <div class="skill-box">{{ skill }}</div>
+        {% endfor %}
+    </div>
+
+    <div class="job-container">
+        <h2>Jobs Matching Your Skills</h2>
+        {% if recommendations %}
+            {% for job in recommendations %}
+                <div class="job">
+                    <h3>{{ job.job_role }}</h3>
+                    <p><strong>Company:</strong> {{ job.company_name }}</p>
+                    <p><a class="apply-button" href="{{ job.job_link }}" target="_blank">Apply Now</a></p>
+                    <p><a href="{{ job.job_link }}" target="_blank">More Details</a></p>
+                    <p><strong>Match:</strong> {{ job.match_percentage }}%</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No jobs found matching your skills.</p>
+        {% endif %}
+    </div>
+
+    <footer>
+        &copy; {{ current_year }} Job Search System
+    </footer>
+</body>
+</html>
