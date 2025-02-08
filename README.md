@@ -1,8 +1,5 @@
 <b>Intelligent Agent-Based Job Search</b>
 
-
-<b>Tools & Technologies Used: Django, HTML, CSS, Natural Language Processing (NLP), Machine Learning (ML)</b>
-
 <b>Project Description</b><br>
 The Intelligent Agent-Based Job Search system is an AI-powered platform designed to enhance job search efficiency by providing personalized job recommendations and real-time job matching. It leverages Natural Language Processing (NLP), Machine Learning (ML), and intelligent agents to analyze resumes, job descriptions, and user preferences, ensuring accurate job-to-candidate matching.
 
