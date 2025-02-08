@@ -19,10 +19,6 @@ Frontend: HTML, CSS<br>
 Database: SQLite<br>
 AI/ML: NLP techniques (Named Entity Recognition, Semantic Analysis), Machine Learning models<br>
 Security: Encryption protocols, GDPR compliance<br><br>
-<b>Future Enhancements:</b><br>
-🚀 Integration with platforms like LinkedIn & Glassdoor<br>
-📱 Mobile app development for better accessibility<br>
-📊 AI-driven career insights & predictive analytics<br>
 
 This system redefines job search by making it smarter, faster, and more effective for both job seekers and employers.
 
