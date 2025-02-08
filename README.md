@@ -30,6 +30,6 @@ This system redefines job search by making it smarter, faster, and more effectiv
 steps before running the project 
 change file path for 2 variables in views.py  ( file_path pointing to job_data in views.py  AND  in excel_sheet_update_standalone.py )<br> 
 Steps:<br>
-**1.** .\job_portal_project\Scripts\activate --> To start the environment
-**2.** python .\manage.py runserve  ---> TO run the Django server
+**1.** .\job_portal_project\Scripts\activate --> To start the environment<br>
+**2.** python .\manage.py runserve  ---> TO run the Django server<br>
 **3.** As the project is done inside environment there will be no import errors, if you get any import errors  there is pip install -r requirements.txt
