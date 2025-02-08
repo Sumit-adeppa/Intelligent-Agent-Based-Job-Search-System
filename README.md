@@ -1,32 +1,32 @@
-**Intelligent Agent-Based Job Search**
+<b>Intelligent Agent-Based Job Search</b>
 
 
-**Tools & Technologies Used: Django, HTML, CSS, Natural Language Processing (NLP), Machine Learning (ML)**
+<b>Tools & Technologies Used: Django, HTML, CSS, Natural Language Processing (NLP), Machine Learning (ML)</b>
 
-**Project Description**
+</b>Project Description</b>
 The Intelligent Agent-Based Job Search system is an AI-powered platform designed to enhance job search efficiency by providing personalized job recommendations and real-time job matching. It leverages Natural Language Processing (NLP), Machine Learning (ML), and intelligent agents to analyze resumes, job descriptions, and user preferences, ensuring accurate job-to-candidate matching.
 
-**Key Features:**<br>
+<b>Key Features:</b><br>
 ✅ AI-driven job recommendations based on skills, experience, and preferences<br>
 ✅ Resume parsing & job description analysis for precise matching<br>
 ✅ Real-time job updates via third-party API integrations<br>
 ✅ Advanced search filters to refine job discovery<br>
 ✅ Scalable & modular architecture for future enhancements<br>
 
-**Technology Stack:**<br>
+<b>Technology Stack:</b><br>
 Backend: Django (Python)<br>
 Frontend: HTML, CSS<br>
 Database: SQLite<br>
 AI/ML: NLP techniques (Named Entity Recognition, Semantic Analysis), Machine Learning models<br>
 Security: Encryption protocols, GDPR compliance<br><br>
-Future Enhancements:<br>
+<b>Future Enhancements:</b><br>
 🚀 Integration with platforms like LinkedIn & Glassdoor<br>
 📱 Mobile app development for better accessibility<br>
 📊 AI-driven career insights & predictive analytics<br>
 
 This system redefines job search by making it smarter, faster, and more effective for both job seekers and employers.
 
-**Installation & Setup**<br>
+<b>Installation & Setup</b><br>
 steps before running the project 
 change file path for 2 variables in views.py  ( file_path pointing to job_data in views.py  AND  in excel_sheet_update_standalone.py )<br> 
 Steps:<br>
