@@ -32,4 +32,4 @@ change file path for 2 variables in views.py  ( file_path pointing to job_data i
 Steps:<br>
 **1.** .\job_portal_project\Scripts\activate --> To start the environment<br>
 **2.** python .\manage.py runserve  ---> TO run the Django server<br>
-**3.** As the project is done inside environment there will be no import errors, if you get any import errors  there is pip install -r requirements.txt
+**3.** As the project is done inside environment there will be no import errors, if you get any import errors  there is<br><b> pip install -r requirements.txt</b>
