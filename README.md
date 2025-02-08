@@ -18,7 +18,7 @@ Backend: Django (Python)<br>
 Frontend: HTML, CSS<br>
 Database: SQLite<br>
 AI/ML: NLP techniques (Named Entity Recognition, Semantic Analysis), Machine Learning models<br>
-Security: Encryption protocols, GDPR compliance<br>
+Security: Encryption protocols, GDPR compliance<br><br>
 Future Enhancements:<br>
 🚀 Integration with platforms like LinkedIn & Glassdoor<br>
 📱 Mobile app development for better accessibility<br>
