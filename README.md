@@ -1,4 +1,6 @@
 **Intelligent Agent-Based Job Search**
+
+
 **Tools & Technologies Used: Django, HTML, CSS, Natural Language Processing (NLP), Machine Learning (ML)**
 
 **Project Description**
@@ -24,10 +26,10 @@ Future Enhancements:
 
 This system redefines job search by making it smarter, faster, and more effective for both job seekers and employers.
 
-**Installation & Setup**
+**Installation & Setup**<br>
 steps before running the project 
-change file path for 2 variables in views.py  ( file_path pointing to job_data in views.py  AND  in excel_sheet_update_standalone.py ) 
-Steps:
-**1.** .\job_portal_project\Scripts\activate --> To start the environment 
+change file path for 2 variables in views.py  ( file_path pointing to job_data in views.py  AND  in excel_sheet_update_standalone.py )<br> 
+Steps:<br>
+**1.** .\job_portal_project\Scripts\activate --> To start the environment
 **2.** python .\manage.py runserve  ---> TO run the Django server
 **3.** As the project is done inside environment there will be no import errors, if you get any import errors  there is pip install -r requirements.txt
