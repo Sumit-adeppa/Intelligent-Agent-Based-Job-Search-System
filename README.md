@@ -19,7 +19,6 @@ Frontend: HTML, CSS<br>
 Database: SQLite<br>
 AI/ML: NLP techniques (Named Entity Recognition, Semantic Analysis), Machine Learning models<br>
 Security: Encryption protocols, GDPR compliance<br><br>
-
 This system redefines job search by making it smarter, faster, and more effective for both job seekers and employers.
 
 <b>Installation & Setup</b><br>
