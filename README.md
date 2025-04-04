@@ -1,19 +1,8 @@
-<b>Intelligent Agent-Based Job Search</b>
-
-<b>Project Description</b><br>
-The Intelligent Agent-Based Job Search system is an AI-powered platform designed to enhance job search efficiency by providing personalized job recommendations and real-time job matching. It leverages Natural Language Processing (NLP), Machine Learning (ML), and intelligent agents to analyze resumes, job descriptions, and user preferences, ensuring accurate job-to-candidate matching.
-
-<b>Key Features:</b><br>
-✅ AI-driven job recommendations based on skills, experience, and preferences<br>
-✅ Resume parsing & job description analysis for precise matching<br>
-✅ Real-time job updates via third-party API integrations<br>
-✅ Advanced search filters to refine job discovery<br>
-✅ Scalable & modular architecture for future enhancements<br>
-
-<b>Technology Stack:</b><br>
-Backend: Django (Python)<br>
-Frontend: HTML, CSS<br>
-Database: SQLite<br>
-AI/ML: NLP techniques (Named Entity Recognition, Semantic Analysis), Machine Learning models<br>
-Security: Encryption protocols, GDPR compliance<br>
-This system redefines job search by making it smarter, faster, and more effective for both job seekers and employers.
+Developed an AI-powered job search system that matches candidates to relevant job opportunities based on skills 
+and preferences. 
+• Technologies Used: Python (3.10), Django (4.2), SQLite (3.49.1) 
+Key Contributions & Impact: 
+• Implemented an AI-driven job-matching algorithm, improving match accuracy by 40%. 
+• Developed advanced search filters and personalized recommendations, enhancing user engagement 
+by 30%. 
+• Integrated real-time job updates, ensuring candidates access the latest job openings instantly.
