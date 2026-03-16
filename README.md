@@ -4,5 +4,4 @@
 for downstream matching.</li>  
 <li>Built a Job Description analysis engine using ML-based feature extraction, achieving a 40% improvement in
 match accuracy over a keyword-based baseline.</li>
-<li>Django backend exposing REST endpoints consumed by the frontend job-matching interface. Solo final-year B.E.
-project at BKIT, Bhalki.</li>
+<li>Django backend exposing REST endpoints consumed by the frontend job-matching interface. Final-year B.E.project at Bheemanna Khandre Institute of Technology,, Bhalki.</li>
