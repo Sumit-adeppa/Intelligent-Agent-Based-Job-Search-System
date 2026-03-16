@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Job Recommendations</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            margin: 0;
+            color: #fff;
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-weight: 600;
+            color: #00d4ff;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .skills-container, .job-container {
+            background: rgba(20, 30, 48, 0.95);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .skills-container h2, .job-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .skill-box {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #007bff, #00d4ff);
+            color: #fff;
+            font-size: 14px;
+            text-transform: capitalize;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 123, 255, 0.5);
+        }
+
+        .job {
+            background: rgba(30, 40, 60, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .job:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        }
+
+        .job h3 {
+            margin: 0;
+            color: #00d4ff;
+        }
+
+        .job p {
+            margin: 10px 0;
+            color: #b3b3cc;
+        }
+
+        .job a {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .job a:hover {
+            text-decoration: underline;
+        }
+
+        .apply-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #28a745, #1e7e34);
+            color: #fff;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 16px;
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .apply-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(40, 167, 69, 0.5);
+        }
+
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            display: inline-block;
+            margin: 5px;
+            padding: 6px 12px;
+            color: #00d4ff;
+            border: 1px solid #00d4ff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .pagination a.active {
+            background: #00d4ff;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .pagination a:hover {
+            background: #00d4ff;
+            color: #fff;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #aaa;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-briefcase"></i> Intelligent Agent-Based Job Search</h1>
+
+        <div class="skills-container">
+            <h2><i class="fas fa-cogs"></i> Extracted Skills</h2>
+            {% for skill in parsed_skills %}
+                <div class="skill-box">{{ skill }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="job-container">
+            <h2><i class="fas fa-suitcase"></i> Job Recommendations</h2>
+            {% if recommendations %}
+                {% for job in recommendations %}
+                    <div class="job">
+                        <h3>{{ job.job_role }}</h3>
+                        <p><strong>Company:</strong> {{ job.company_name }}</p>
+                        <p><strong>Matched Skills:</strong></p>
+                        <div>
+                            {% for skill in job.matched_skills %}
+                                <span class="skill-box">{{ skill }}</span>
+                            {% endfor %}
+                        </div>
+                        <p><strong>Details:</strong> <a href="{{ job.Job_details_link }}" target="_blank">Job Details</a></p>
+                        <p><strong>Match Percentage:</strong> {{ job.match_percentage }}%</p>
+                        <a href="{{ job.apply_link }}" class="apply-button" target="_blank">Apply Now</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No job recommendations available at the moment.</p>
+            {% endif %}
+        </div>
+
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+                <a href="?page={{ num }}" class="{% if page_obj.number == num %}active{% endif %}">{{ num }}</a>
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <footer>
+        &copy; {{ current_year }} Intelligent Agent-Based Job Search System
+    </footer>
+</body>
+</html>
