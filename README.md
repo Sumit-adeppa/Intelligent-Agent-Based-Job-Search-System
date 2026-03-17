@@ -1,184 +1,191 @@
-# 🔍 Job Search System
+<!DOCTYPE html>
+<html lang="en">
+<body>
 
+ # Intelligent Agent Based Job Search System
+
+<p>
 A Django-based web application that intelligently matches job seekers with relevant job opportunities by analyzing uploaded resumes using Natural Language Processing (NLP) and fuzzy skill matching.
+</p>
 
----
+<hr>
 
-## 📌 Features
+<h2>📌 Features</h2>
+<ul>
+  <li><b>Resume Upload & Parsing</b> – Upload a PDF resume and automatically extract text using <code>pypdf</code></li>
+  <li><b>NLP-Based Skill Extraction</b> – Uses <code>spaCy</code> with a curated skills dataset to identify relevant skills</li>
+  <li><b>Fuzzy Skill Matching</b> – Matches extracted skills with job descriptions using <code>rapidfuzz</code></li>
+  <li><b>Smart Job Recommendations</b> – Ranks jobs based on skill match percentage</li>
+  <li><b>Paginated Job Listings</b> – Browse jobs efficiently with pagination</li>
+  <li><b>Excel-Based Data Source</b> – Job listings loaded using <code>pandas</code></li>
+  <li><b>User Authentication</b> – Register and login functionality</li>
+  <li><b>Django Admin Panel</b> – Manage jobs, resumes, and portals</li>
+</ul>
 
-- Resume Upload & Parsing  
-  Upload a PDF resume and automatically extract text using pypdf.
+<hr>
 
-- NLP-Based Skill Extraction  
-  Uses spaCy along with a curated skills dataset to identify relevant skills from resumes.
+<h2>🛠️ Tech Stack</h2>
+<table border="1" cellpadding="8">
+<tr><th>Layer</th><th>Technology</th></tr>
+<tr><td>Backend Framework</td><td>Django</td></tr>
+<tr><td>NLP</td><td>spaCy (en_core_web_sm)</td></tr>
+<tr><td>Fuzzy Matching</td><td>RapidFuzz</td></tr>
+<tr><td>PDF Parsing</td><td>pypdf</td></tr>
+<tr><td>Data Processing</td><td>pandas, openpyxl</td></tr>
+<tr><td>Database</td><td>SQLite3</td></tr>
+<tr><td>Language</td><td>Python 3.10+</td></tr>
+</table>
 
-- Fuzzy Skill Matching  
-  Matches extracted skills with job descriptions using rapidfuzz for better accuracy.
+<hr>
 
-- Smart Job Recommendations  
-  Ranks job listings based on how well they match the candidate’s skills.
-
-- Job Listings with Pagination  
-  Browse available jobs with clean pagination for better usability.
-
-- Excel-Based Job Data Source  
-  Job listings are loaded from an Excel file using pandas.
-
-- Authentication System  
-  User registration and login functionality included.
-
-- Django Admin Panel  
-  Easily manage jobs, resumes, and related data.
-
----
-
-## 🛠️ Tech Stack
-
-Backend Framework: Django  
-NLP: spaCy (en_core_web_sm)  
-Fuzzy Matching: RapidFuzz  
-PDF Parsing: pypdf  
-Data Processing: pandas, openpyxl  
-Database: SQLite3  
-Language: Python 3.10+
-
----
-
-## 📁 Project Structure
-
+<h2>📁 Project Structure</h2>
+<pre>
 job_search_system/
 ├── job_search/
-│ ├── models.py
-│ ├── views.py
-│ ├── forms.py
-│ ├── urls.py
-│ ├── admin.py
-│ ├── data/
-│ │ └── job_data.xlsx
-│ ├── templates/
-│ │ ├── job_search/
-│ │ │ ├── upload_resume.html
-│ │ │ ├── job_list.html
-│ │ │ ├── post_job.html
-│ │ │ └── upload_excel.html
-│ │ └── registration/
-│ │ ├── login.html
-│ │ └── register.html
-│ └── migrations/
+│   ├── models.py
+│   ├── views.py
+│   ├── forms.py
+│   ├── urls.py
+│   ├── admin.py
+│   ├── data/
+│   │   └── job_data.xlsx
+│   ├── templates/
+│   │   ├── job_search/
+│   │   └── registration/
+│   └── migrations/
 ├── job_search_system/
-│ ├── settings.py
-│ ├── urls.py
-│ ├── asgi.py
-│ ├── wsgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   ├── wsgi.py
 ├── scripts/
-│ ├── skills_db.json
-│ └── excel_sheet_update_standalone.py
+│   ├── skills_db.json
+│   └── excel_sheet_update_standalone.py
 ├── manage.py
 └── db.sqlite3
+</pre>
 
----
+<hr>
 
-## 🚀 Getting Started
+<h2>🚀 Getting Started</h2>
 
-### Prerequisites
+<h3>Prerequisites</h3>
+<ul>
+  <li>Python 3.10+</li>
+  <li>pip</li>
+</ul>
 
-- Python 3.10+
-- pip
+<h3>Installation</h3>
 
----
+<ol>
+  <li><b>Clone the repository</b></li>
+</ol>
+<pre>
+git clone https://github.com/your-username/job_search_system.git
+cd job_search_system
+</pre>
 
-### Installation
+<ol start="2">
+  <li><b>Create virtual environment</b></li>
+</ol>
+<pre>
+python -m venv venv
+source venv/bin/activate
+# Windows: venv\Scripts\activate
+</pre>
 
-1. Clone the repository  
-git clone https://github.com/your-username/job_search_system.git  
-cd job_search_system  
+<ol start="3">
+  <li><b>Install dependencies</b></li>
+</ol>
+<pre>
+pip install django spacy rapidfuzz pypdf pandas openpyxl
+</pre>
 
-2. Create virtual environment  
-python -m venv venv  
-source venv/bin/activate      (Windows: venv\Scripts\activate)  
+<ol start="4">
+  <li><b>Download spaCy model</b></li>
+</ol>
+<pre>
+python -m spacy download en_core_web_sm
+</pre>
 
-3. Install dependencies  
-pip install django spacy rapidfuzz pypdf pandas openpyxl  
+<ol start="5">
+  <li><b>Apply migrations</b></li>
+</ol>
+<pre>
+python manage.py migrate
+</pre>
 
-4. Download spaCy model  
-python -m spacy download en_core_web_sm  
+<ol start="6">
+  <li><b>Run the server</b></li>
+</ol>
+<pre>
+python manage.py runserver
+</pre>
 
-5. Apply migrations  
-python manage.py migrate  
+<ol start="7">
+  <li><b>Open in browser</b></li>
+</ol>
+<pre>
+http://127.0.0.1:8000/
+</pre>
 
-6. Run server  
-python manage.py runserver  
+<hr>
 
-7. Open in browser  
-http://127.0.0.1:8000/  
+<h2>⚙️ How It Works</h2>
+<ol>
+  <li>User uploads a PDF resume</li>
+  <li>Text is extracted using pypdf</li>
+  <li>spaCy processes the text</li>
+  <li>Skills are matched using fuzzy matching</li>
+  <li>Job descriptions are compared with extracted skills</li>
+  <li>Jobs are ranked based on match percentage</li>
+  <li>Results are displayed to the user</li>
+</ol>
 
----
+<hr>
 
-## ⚙️ How It Works
+<h2>📊 Data Source</h2>
 
-1. User uploads a resume (PDF format)  
-2. Text is extracted using pypdf  
-3. spaCy processes the text to identify keywords  
-4. Skills are matched against a predefined skills database using fuzzy matching  
-5. Job descriptions are compared with extracted skills  
-6. Jobs are ranked based on match percentage  
-7. Results are displayed to the user  
+<p>Job data is stored in:</p>
+<pre>job_search/data/job_data.xlsx</pre>
 
----
+<table border="1" cellpadding="8">
+<tr><th>Column</th><th>Description</th></tr>
+<tr><td>Job Role</td><td>Title of the job</td></tr>
+<tr><td>Company Name</td><td>Hiring company</td></tr>
+<tr><td>Job Description</td><td>Full description</td></tr>
+<tr><td>Job URL</td><td>Link to job details</td></tr>
+<tr><td>Apply URL</td><td>Application link</td></tr>
+</table>
 
-## 📊 Data Source
+<hr>
 
-Job data is stored in:  
-job_search/data/job_data.xlsx  
+<h2>🗄️ Database Models</h2>
+<ul>
+  <li><b>Job</b> – Stores job details and descriptions</li>
+  <li><b>Resume</b> – Stores uploaded resumes and extracted skills</li>
+  <li><b>CareerPortal</b> – Stores company portal information</li>
+</ul>
 
-Required Columns:
+<hr>
 
-- Job Role  
-- Company Name  
-- Job Description  
-- Job URL  
-- Apply URL  
+<h2>🤝 Contributing</h2>
 
----
+<p>All developers are welcome to contribute to this project.</p>
 
-## 🗄️ Database Models
+<ol>
+  <li>Fork the repository</li>
+  <li>Create a new branch</li>
+  <li>Make your changes</li>
+  <li>Submit a pull request</li>
+</ol>
 
-- Job — Stores job details and descriptions  
-- Resume — Stores uploaded resumes and extracted skills  
-- CareerPortal — Stores company portal information  
+<p>You can contribute by improving features, optimizing performance, enhancing UI/UX, or adding new ideas.</p>
 
----
 
-## 🤝 Contributing
+<h2>⭐ Support</h2>
 
-Contributions are welcome and encouraged.
+<p>If you find this project useful, consider giving it a ⭐ on GitHub!</p>
 
-Steps to contribute:
-
-1. Fork the repository  
-2. Create a new branch  
-3. Make your changes  
-4. Submit a pull request  
-
-You can contribute by improving features, fixing bugs, enhancing UI, or optimizing performance.
-
----
-
-## 📜 License
-
-MIT License
-
-Copyright (c) 2026
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files to deal in the Software
-without restriction, including without limitation the rights to use, copy,
-modify, merge, publish, distribute, sublicense, and/or sell copies.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
-
----
-
-## ⭐ Support
-
-If you find this project useful, consider giving it a star on GitHub.
+</body>
+</html>
