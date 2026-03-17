@@ -1,130 +1,184 @@
-# Intelligent Agent-Based Job Search System
+# 🔍 Job Search System
 
-## 🚀 Overview
-
-The **Intelligent Agent-Based Job Search System** is an automated platform designed to streamline and personalize the job search process. It leverages intelligent agents to collect, filter, and recommend job opportunities based on user preferences, skills, and relevance.
-
-Instead of manually browsing multiple job portals, this system acts as a smart assistant that continuously searches, analyzes, and delivers the most suitable job listings.
+A Django-based web application that intelligently matches job seekers with relevant job opportunities by analyzing uploaded resumes using Natural Language Processing (NLP) and fuzzy skill matching.
 
 ---
 
-## 🎯 Objectives
+## 📌 Features
 
-* Automate job discovery from multiple sources
-* Provide personalized job recommendations
-* Reduce time spent on manual job searching
-* Improve match quality using intelligent filtering
+- Resume Upload & Parsing  
+  Upload a PDF resume and automatically extract text using pypdf.
 
----
+- NLP-Based Skill Extraction  
+  Uses spaCy along with a curated skills dataset to identify relevant skills from resumes.
 
-## 🧠 Key Features
+- Fuzzy Skill Matching  
+  Matches extracted skills with job descriptions using rapidfuzz for better accuracy.
 
-* **Multi-Agent Architecture**
+- Smart Job Recommendations  
+  Ranks job listings based on how well they match the candidate’s skills.
 
-  * Different agents handle scraping, filtering, ranking, and recommendation
-* **Automated Job Scraping**
+- Job Listings with Pagination  
+  Browse available jobs with clean pagination for better usability.
 
-  * Extracts job listings from various platforms
-* **Personalized Recommendations**
+- Excel-Based Job Data Source  
+  Job listings are loaded from an Excel file using pandas.
 
-  * Matches jobs based on user profile, skills, and preferences
-* **Keyword & Skill Matching**
+- Authentication System  
+  User registration and login functionality included.
 
-  * Uses text processing to evaluate job relevance
-* **Ranking System**
-
-  * Prioritizes jobs based on similarity score
-* **Continuous Monitoring**
-
-  * Periodically updates job listings
-
----
-
-## 🏗️ System Architecture
-
-1. **Data Collection Agent**
-
-   * Scrapes job listings from online platforms
-2. **Processing Agent**
-
-   * Cleans and structures raw job data
-3. **Matching Agent**
-
-   * Compares job descriptions with user profiles
-4. **Recommendation Agent**
-
-   * Ranks and suggests the best-fit jobs
+- Django Admin Panel  
+  Easily manage jobs, resumes, and related data.
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Programming Language:** Python
-* **Libraries & Tools:**
-
-  * spaCy (for scraping)
-  * Pandas / NumPy (data processing)
-  * NLP techniques (for matching & scoring)
-* **Optional Enhancements:**
-
-  * Machine Learning models for recommendation
-  * Excel for real-time job feed
+Backend Framework: Django  
+NLP: spaCy (en_core_web_sm)  
+Fuzzy Matching: RapidFuzz  
+PDF Parsing: pypdf  
+Data Processing: pandas, openpyxl  
+Database: SQLite3  
+Language: Python 3.10+
 
 ---
 
-## ⚙️ Installation
+## 📁 Project Structure
 
-```bash
-git clone https://github.com/Sumit-adeppa/Intelligent-Agent-Based-Job-Search-System.git
-cd Intelligent-Agent-Based-Job-Search-System
-pip install -r requirements.txt
-```
+job_search_system/
+├── job_search/
+│ ├── models.py
+│ ├── views.py
+│ ├── forms.py
+│ ├── urls.py
+│ ├── admin.py
+│ ├── data/
+│ │ └── job_data.xlsx
+│ ├── templates/
+│ │ ├── job_search/
+│ │ │ ├── upload_resume.html
+│ │ │ ├── job_list.html
+│ │ │ ├── post_job.html
+│ │ │ └── upload_excel.html
+│ │ └── registration/
+│ │ ├── login.html
+│ │ └── register.html
+│ └── migrations/
+├── job_search_system/
+│ ├── settings.py
+│ ├── urls.py
+│ ├── asgi.py
+│ ├── wsgi.py
+├── scripts/
+│ ├── skills_db.json
+│ └── excel_sheet_update_standalone.py
+├── manage.py
+└── db.sqlite3
 
 ---
 
-## ▶️ Usage
+## 🚀 Getting Started
 
-```bash
-python main.py
-```
+### Prerequisites
 
-* Configure your preferences (skills, role, location)
-* The system will fetch and recommend relevant jobs
+- Python 3.10+
+- pip
 
 ---
 
-## 📊 How It Works
+### Installation
 
-1. User provides input (skills, job role, location)
-2. System scrapes job postings
-3. Data is cleaned and processed
-4. Matching algorithm computes relevance
-5. Ranked job recommendations are returned
+1. Clone the repository  
+git clone https://github.com/your-username/job_search_system.git  
+cd job_search_system  
+
+2. Create virtual environment  
+python -m venv venv  
+source venv/bin/activate      (Windows: venv\Scripts\activate)  
+
+3. Install dependencies  
+pip install django spacy rapidfuzz pypdf pandas openpyxl  
+
+4. Download spaCy model  
+python -m spacy download en_core_web_sm  
+
+5. Apply migrations  
+python manage.py migrate  
+
+6. Run server  
+python manage.py runserver  
+
+7. Open in browser  
+http://127.0.0.1:8000/  
 
 ---
 
-## 📌 Future Improvements
+## ⚙️ How It Works
 
-* Integration with LinkedIn / Indeed APIs
-* Advanced ML-based recommendation engine
-* Resume parsing and auto-matching
-* Web dashboard for visualization
-* Email/notification alerts
+1. User uploads a resume (PDF format)  
+2. Text is extracted using pypdf  
+3. spaCy processes the text to identify keywords  
+4. Skills are matched against a predefined skills database using fuzzy matching  
+5. Job descriptions are compared with extracted skills  
+6. Jobs are ranked based on match percentage  
+7. Results are displayed to the user  
+
+---
+
+## 📊 Data Source
+
+Job data is stored in:  
+job_search/data/job_data.xlsx  
+
+Required Columns:
+
+- Job Role  
+- Company Name  
+- Job Description  
+- Job URL  
+- Apply URL  
+
+---
+
+## 🗄️ Database Models
+
+- Job — Stores job details and descriptions  
+- Resume — Stores uploaded resumes and extracted skills  
+- CareerPortal — Stores company portal information  
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Feel free to fork the repo and submit a pull request.
+Contributions are welcome and encouraged.
+
+Steps to contribute:
+
+1. Fork the repository  
+2. Create a new branch  
+3. Make your changes  
+4. Submit a pull request  
+
+You can contribute by improving features, fixing bugs, enhancing UI, or optimizing performance.
 
 ---
 
-## 📄 License
+## 📜 License
 
-This project is open-source and available under the MIT License.
+MIT License
+
+Copyright (c) 2026
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files to deal in the Software
+without restriction, including without limitation the rights to use, copy,
+modify, merge, publish, distribute, sublicense, and/or sell copies.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
 
 ---
 
-## 👨‍💻 Author
+## ⭐ Support
 
-**Sumit Adeppa**
+If you find this project useful, consider giving it a star on GitHub.
